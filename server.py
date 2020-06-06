@@ -65,12 +65,11 @@ def setMotor(ch, speed, stat):
 
 # Below Server code
 
-LED = 21
+
 
 GPIO.setmode(GPIO.BCM)  # programming the GPIO by BCM pin numbers. (like PIN40 as GPIO21)
 GPIO.setwarnings(False)
-GPIO.setup(LED, GPIO.OUT)  # initialize GPIO21 (LED) as an output Pin
-GPIO.output(LED, 0)
+
 
 pwmA = setPinConfig(ENA, IN1, IN2)
 pwmB = setPinConfig(ENB, IN3, IN4)
@@ -88,20 +87,16 @@ while 1:
     data = client_socket.recv(1024)
     print "Received: %s" % data
     if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
-        print ("GPIO 21 LOW, LED OFF")
         setMotor(CH1, 100, FORWARD)
         setMotor(CH2, 100, FORWARD)
     if (data == "1"):  # if '1' is sent from the Android App, turn OFF the LED
-        print ("GPIO 21 HIGH, LED ON")
         setMotor(CH1, 100, BACKWORD)
         setMotor(CH2, 100, BACKWORD)
     if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
-        print ("GPIO 21 LOW, LED OFF")
         setMotor(CH1, 100, FORWARD)
-        setMotor(CH2, 100, STOP)
+        setMotor(CH2, 50, FORWARD)
     if (data == "r"):  # if '0' is sent from the Android App, turn OFF the LED
-        print ("GPIO 21 LOW, LED OFF")
-        setMotor(CH1, 100, STOP)
+        setMotor(CH1, 50, FORWARD)
         setMotor(CH2, 100, FORWARD)
     if (data == "q"):
         setMotor(CH1, 80, STOP)
