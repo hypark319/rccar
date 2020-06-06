@@ -23,6 +23,7 @@ IN3 = 6  # 31 pin
 IN4 = 5  # 29 pin
 
 
+
 def setPinConfig(EN, INA, INB):
     GPIO.setup(EN, GPIO.OUT)
     GPIO.setup(INA, GPIO.OUT)
@@ -73,3 +74,4 @@ setMotor(CH1, 80, STOP)
 setMotor(CH2, 80, STOP)
 
 GPIO.cleanup()
+
