@@ -95,6 +95,12 @@ while 1:
         print ("GPIO 21 HIGH, LED ON")
         setMotor(CH1, 100, BACKWORD)
         setMotor(CH2, 100, BACKWORD)
+    if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
+        print ("GPIO 21 LOW, LED OFF")
+        setMotor(CH1, 100, FORWARD)
+    if (data == "r"):  # if '0' is sent from the Android App, turn OFF the LED
+        print ("GPIO 21 LOW, LED OFF")
+        setMotor(CH2, 100, FORWARD)
     if (data == "q"):
         setMotor(CH1, 80, STOP)
         setMotor(CH2, 80, STOP)
