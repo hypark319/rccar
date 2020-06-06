@@ -93,8 +93,8 @@ while 1:
         setMotor(CH2, 100, FORWARD)
     if (data == "1"):  # if '1' is sent from the Android App, turn OFF the LED
         print ("GPIO 21 HIGH, LED ON")
-        setMotor(CH1, 1, BACKWORD)
-        setMotor(CH2, 1, BACKWORD)
+        setMotor(CH1, 100, BACKWORD)
+        setMotor(CH2, 100, BACKWORD)
     if (data == "q"):
         setMotor(CH1, 80, STOP)
         setMotor(CH2, 80, STOP)
