@@ -94,9 +94,9 @@ while 1:
         setMotor(CH2, 100, BACKWORD)
     if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
         setMotor(CH1, 100, FORWARD)
-        setMotor(CH2, 50, FORWARD)
+        setMotor(CH2, 0, FORWARD)
     if (data == "r"):  # if '0' is sent from the Android App, turn OFF the LED
-        setMotor(CH1, 50, FORWARD)
+        setMotor(CH1, 0, FORWARD)
         setMotor(CH2, 100, FORWARD)
     if (data == "q"):
         setMotor(CH1, 80, STOP)
