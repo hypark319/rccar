@@ -87,17 +87,17 @@ while 1:
     data = client_socket.recv(1024)
     print "Received: %s" % data
     if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
-        setMotor(CH1, 100, FORWARD)
-        setMotor(CH2, 100, FORWARD)
-    if (data == "1"):  # if '1' is sent from the Android App, turn OFF the LED
-        setMotor(CH1, 100, BACKWORD)
-        setMotor(CH2, 100, BACKWORD)
-    if (data == "2"):  # if '0' is sent from the Android App, turn OFF the LED
-        setMotor(CH1, 100, FORWARD)
-        setMotor(CH2, 0, FORWARD)
+        setMotor(CH1, 70, FORWARD)
+        setMotor(CH2, 70, FORWARD)
+    if (data == "r"):  # if '1' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 70, BACKWORD)
+        setMotor(CH2, 70, BACKWORD)
+    if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 70, FORWARD)
+        setMotor(CH2, 20, FORWARD)
     if (data == "3"):  # if '0' is sent from the Android App, turn OFF the LED
-        setMotor(CH1, 0, FORWARD)
-        setMotor(CH2, 100, FORWARD)
+        setMotor(CH1, 20, FORWARD)
+        setMotor(CH2, 70, FORWARD)
     if (data == "q"):
         setMotor(CH1, 80, STOP)
         setMotor(CH2, 80, STOP)
