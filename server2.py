@@ -97,7 +97,7 @@ server_socket.listen(1)
 client_socket, address = server_socket.accept()
 print "Accepted connection from ", address
 
-while True:
+while 1:
     data = client_socket.recv(1024)
 
 
