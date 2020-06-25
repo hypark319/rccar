@@ -1,11 +1,8 @@
 import bluetooth
-import RPi.GPIO as GPIO  # calling for header file which helps in using GPIOs of PI
-
+import RPi.GPIO as GPIO
+import time
 
 # RC Code
-
-import RPi.GPIO as GPIO
-from time import sleep
 
 STOP = 0
 FORWARD = 1
@@ -20,13 +17,15 @@ INPUT = 0
 HIGH = 1
 LOW = 0
 
-ENA = 26  # 37 pin
-ENB = 0  # 27 pin
+ENA = 26  # board 37 pin
+ENB = 0  # board 27 pin
 
-IN1 = 19  # 35 pin
-IN2 = 13  # 33 pin
-IN3 = 6  # 31 pin
-IN4 = 5  # 29 pin
+IN1 = 19  # board 35 pin
+IN2 = 13  # board 33 pin
+IN3 = 6  # board 31 pin
+IN4 = 5  # board 29 pin
+
+pirPin = 23 # board 16 pin, motion sensor
 
 
 
@@ -58,6 +57,19 @@ def setMotor(ch, speed, stat):
     else:
         setMotorContorl(pwmB, IN3, IN4, speed, stat)
 
+def loop():
+    while True:
+
+        if GPIO.input(pirPin) == GPIO.LOW:
+
+            print "Motion detected!"
+
+        else:
+
+            print "No motion"
+
+        time.sleep(0.2)
+
 
 
 
@@ -74,6 +86,8 @@ GPIO.setwarnings(False)
 pwmA = setPinConfig(ENA, IN1, IN2)
 pwmB = setPinConfig(ENB, IN3, IN4)
 
+GPIO.setup(pirPin, GPIO.IN, GPIO.PUD_UP)
+
 server_socket = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
 
 port = 1
@@ -83,7 +97,7 @@ server_socket.listen(1)
 client_socket, address = server_socket.accept()
 print "Accepted connection from ", address
 while 1:
-
+    loop()
     data = client_socket.recv(1024)
     print "Received: %s" % data
     if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
