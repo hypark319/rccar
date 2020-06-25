@@ -99,28 +99,28 @@ print "Accepted connection from ", address
 try:
     loop()
     data = client_socket.recv(1024)
-    while (1):
 
-        print "Received: %s" % data
-        if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
-            setMotor(CH1, 50, FORWARD)
-            setMotor(CH2, 50, FORWARD)
-        if (data == "1"):  # if '1' is sent from the Android App, turn OFF the LED
-            setMotor(CH1, 50, BACKWORD)
-            setMotor(CH2, 50, BACKWORD)
-        if (data == "r"):  # if '0' is sent from the Android App, turn OFF the LED
-            setMotor(CH1, 50, FORWARD)
-            setMotor(CH2, 20, FORWARD)
-        if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
-            setMotor(CH1, 20, FORWARD)
-            setMotor(CH2, 50, FORWARD)
-        if (data == "q"):
-            setMotor(CH1, 80, STOP)
-            setMotor(CH2, 80, STOP)
-        if (data == "e"):
-            setMotor(CH1, 80, STOP)
-            setMotor(CH2, 80, STOP)
-            break
+
+    print "Received: %s" % data
+    if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 50, FORWARD)
+        setMotor(CH2, 50, FORWARD)
+    if (data == "1"):  # if '1' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 50, BACKWORD)
+        setMotor(CH2, 50, BACKWORD)
+    if (data == "r"):  # if '0' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 50, FORWARD)
+        setMotor(CH2, 20, FORWARD)
+    if (data == "l"):  # if '0' is sent from the Android App, turn OFF the LED
+        setMotor(CH1, 20, FORWARD)
+        setMotor(CH2, 50, FORWARD)
+    if (data == "q"):
+        setMotor(CH1, 80, STOP)
+        setMotor(CH2, 80, STOP)
+    if (data == "e"):
+        setMotor(CH1, 80, STOP)
+        setMotor(CH2, 80, STOP)
+        break
 
 client_socket.close()
 server_socket.close()
