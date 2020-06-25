@@ -98,8 +98,9 @@ client_socket, address = server_socket.accept()
 print "Accepted connection from ", address
 try:
     loop()
+    data = client_socket.recv(1024)
     while (1):
-        data = client_socket.recv(1024)
+
         print "Received: %s" % data
         if (data == "0"):  # if '0' is sent from the Android App, turn OFF the LED
             setMotor(CH1, 50, FORWARD)
